@@ -2,4 +2,13 @@
   max-width: 880px;
   margin: 0 auto;
   padding-top: 51px;
+  display: grid;
+  grid-template-columns: 282px 1fr 1fr;
+  grid-gap: 20px 17px;
 }
+
+@media screen and (max-width: 320px) {
+    .elements {
+    grid-template-columns: 282px;
+    }
+  }
