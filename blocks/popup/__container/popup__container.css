@@ -1,4 +1,7 @@
 .popup__container {
+  position: absolute;
+  top: 195px;
+  left: 425px;
   width: 430px;
   height: 330px;
   background-color: #fff;

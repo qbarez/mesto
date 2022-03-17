@@ -1,13 +1,9 @@
 .footer {
   max-width: 880px;
   margin: 0 auto;
-  padding-top: 45px;
-  border-bottom: 1px #545454;
-  position: relative;
-
 }
 
-@media screen and (max-width: 1279px) {
+/*@media screen and (max-width: 1279px) {
   .footer {
     max-width: 90.62%;
   }
