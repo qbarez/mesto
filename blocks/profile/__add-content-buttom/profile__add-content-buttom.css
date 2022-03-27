@@ -4,3 +4,7 @@
     align-self: center;
     margin-left: auto;
 }
+
+.profile__add-content-buttom:hover {
+    opacity: 0.6;
+  }

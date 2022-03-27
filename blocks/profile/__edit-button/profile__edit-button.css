@@ -3,3 +3,7 @@
   height: 24px;
   margin: 37px 0 0 18px; 
 }
+
+.profile__edit-button:hover {
+  opacity: 0.6;
+}
