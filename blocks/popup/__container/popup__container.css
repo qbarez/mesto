@@ -1,9 +1,9 @@
 .popup__container {
+  width: 430px;
+  height: 330px;
   position: fixed;
   top: 195px;
   right: 33%;
-  width: 430px;
-  height: 330px;
   margin: 0 auto;
   background-color: #fff;
   display: flex;
@@ -13,31 +13,18 @@
   border-radius: 10px;
 }
 
-/*@media screen and (max-width: 1024px) {
-  .places {
-    max-width: 90.62%;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .places {
-    gap: 73px;
-    max-width: 93.75%;
-    padding-top: 88px;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .places {
-    max-width: 100%;
+@media screen and (max-width: 880px) {
+  .popup__container {
+    right: 225px;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .places {
-    gap: 50px;
-    padding-top: 64px;
-    padding-bottom: 66px;
-
+  .popup__container {
+    width: 282px;
+    height: 322px;
+    top: 123px;
+    right: 19px;
+    right: 19px;
   }
-}*/
+}

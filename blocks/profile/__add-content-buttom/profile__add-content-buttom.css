@@ -3,8 +3,28 @@
     height: 50px;
     align-self: center;
     margin-left: auto;
+    background: transparent url(../../../images/add_content-buttom.svg) 50% no-repeat;
+    background-size: contain;
+    border: none;
+    border-radius: 2px;
 }
 
 .profile__add-content-buttom:hover {
     opacity: 0.6;
   }
+
+@media screen and (max-width: 880px) {
+    .profile__add-content-buttom {
+      width: 581px;
+      margin: 36px auto 0;
+      background: url(../../../images/big_add_button.svg) 50% no-repeat;
+    }
+  }
+
+  @media screen and (max-width: 320px) {
+    .profile__add-content-buttom {
+      width: 282px;
+      
+    }
+  }
+ 

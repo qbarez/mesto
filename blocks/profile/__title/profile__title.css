@@ -9,4 +9,18 @@
   line-height: 48px;
   /* or 114% */
   color: #FFFFFF;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 320px) {
+  .profile__title {
+    width: 189px;
+    height: 26px;
+    font-size: 27px;
+    line-height: 33px;
+    text-align: center;
+    padding-bottom: 14px;
+  }
 }

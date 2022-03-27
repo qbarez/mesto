@@ -13,3 +13,11 @@
   border-radius: 2px;
   
 }
+
+@media screen and (max-width: 320px) {
+  .popup__submit-button {
+    width: 238px;
+    height: 46px;
+    margin: 0 22px 0;
+  }
+}
