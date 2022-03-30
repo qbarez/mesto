@@ -2,6 +2,7 @@
   width: 22px;
   height: 19px;
   margin: 25px 15px 0 0;
+  background: url(../../../images/vector_like_image.svg) 50% no-repeat;
 }
 
 .element__like-button:hover {
