@@ -1,4 +1,4 @@
-.popup__form-header {
+.popup__title {
     min-width: 330px;
     margin: 34px 64px 54px 36px;
     font-family: 'Inter';
@@ -10,7 +10,7 @@
 }
 
 @media screen and (max-width: 320px) {
-    .popup__form-header {
+    .popup__title {
       min-width: 238px;
       margin: 25px auto 75px 22px;
       font-size: 18px;
