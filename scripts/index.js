@@ -1,44 +1,45 @@
-let popup = document.querySelector('.popup');
+const popup = document.querySelector('.popup');
 
-let editProfile = document.querySelector('.profile__edit-button');
+const editProfile = document.querySelector('.profile__edit-button');
 
-let closeProfile = document.querySelector('.popup__close-button');
+const closeProfile = document.querySelector('.popup__close-button');
 
-let profileName = document.querySelector('.profile__title');
+const submitProfile = document.querySelector('.popup__submit-button');
 
-let profileInfo = document.querySelector('.profile__subtitle');
+const profileName = document.querySelector('.profile__title');
 
-let popupContainer = document.querySelector('.popup__container');
+const profileInfo = document.querySelector('.profile__subtitle');
 
-let formElement = popupContainer.querySelector('.popup__form');
+const popupContainer = document.querySelector('.popup__container');
 
-let inputName = formElement.querySelector('input[name="name"]');
+const formElement = popupContainer.querySelector('.popup__form');
 
-let inputInfo = formElement.querySelector('input[name="info"]');
+const inputName = formElement.querySelector('input[name="name"]');
 
-function togglePopup() {
-  popup.classList.toggle('popup_opened');
-};
+const inputInfo = formElement.querySelector('input[name="info"]');
 
-function saveProfileData() {
+function openPopup() {
+  popup.classList.add('popup_opened');
   inputName.value = profileName.textContent;
   inputInfo.value = profileInfo.textContent;
 };
 
-function formSubmitHandler (evt) {
-	evt.preventDefault();
+function closePopup() {
+  popup.classList.remove('popup_opened')
+};
+
+function submitPopup(evt) {
+  evt.preventDefault();
+  popup.classList.remove('popup_opened');
   profileName.textContent = inputName.value;
   profileInfo.textContent = inputInfo.value;
-  togglePopup();
-}
+};
 
-editProfile.addEventListener('click', togglePopup);
+editProfile.addEventListener('click', openPopup);
 
-editProfile.addEventListener('click', saveProfileData);
+closeProfile.addEventListener('click', closePopup);
 
-closeProfile.addEventListener('click', togglePopup);
-
-formElement.addEventListener('submit', formSubmitHandler);
+submitProfile.addEventListener('click', submitPopup);
 
 /*popup.addEventListener('click', function(event){
   if (event.target === event.currentTarget) {
