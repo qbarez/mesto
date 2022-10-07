@@ -1,13 +1,16 @@
-.elements {
+.places__elements {
   max-width: 880px;
   margin: 0 auto;
   padding-top: 51px;
   display: grid;
   grid-template-columns: 282px 1fr 1fr;
   grid-gap: 20px 17px;
+  list-style: none;
+  list-style-type: none;
 }
 
 
+<<<<<<< HEAD:blocks/elements/elements.css
 @media screen and (max-width: 880px) {
   .elements {
     max-width: 581px;
@@ -18,6 +21,16 @@
 @media screen and (max-width: 580px) {
     .elements {
     width: 282px;
+=======
+@media screen and (max-width: 1023px) {
+  .places__elements {
+  grid-template-columns: 282px 1fr;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .places__elements {
+>>>>>>> develop:blocks/places/__elements/places__elements.css
     grid-template-columns: 282px;
     padding-top: 36px;
     grid-gap: 20px 0;

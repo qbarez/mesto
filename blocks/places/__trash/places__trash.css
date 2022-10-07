@@ -1,0 +1,12 @@
+.places__trash {
+    width: 18px;
+    height: 19px;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+  }
+  
+  .places__trash:hover {
+    opacity: 0.6;
+    cursor: pointer;
+  }
