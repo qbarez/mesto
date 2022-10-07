@@ -28,54 +28,6 @@
       <!--Карточки с интересными местами-->
       <section class="places">
         <ul class="places__elements">
-        <li class="places__element">
-          <img src="./images/Trashtrash.svg" alt="Корзина" class="places__trash">
-          <img src="./images/element_image_karachaevsk.jpg" alt="Старинный храм в Карачаевске" class="places__image">
-          <div class="places__caption-container">
-            <h2 class="places__title">Карачаевск</h2>
-            <img src="./images/vector_like_image.svg" alt="Кнопка лайк" class="places__like-button places__like-button_active">
-          </div>
-        </li>
-        <li class="places__element">
-          <img src="./images/Trashtrash.svg" alt="Корзина" class="places__trash">
-          <img src="./images/egor-myznik-7ukwCTEMwyw-unsplash_roza-hutor.jpg" alt="Вид на горы Роза-Хутор" class="places__image">
-          <div class="places__caption-container">
-            <h2 class="places__title">Роза-Хутор</h2>
-            <img src="./images/vector_like_image.svg" alt="Кнопка лайк" class="places__like-button">
-          </div>
-        </li>
-        <li class="places__element">
-          <img src="./images/Trashtrash.svg" alt="Корзина" class="places__trash">
-          <img src="./images/egor-myznik-Fj1VERX_lfk-unsplash_pereslavl-zalesky.jpg" alt="Кремль в Переславль-Залесском" class="places__image">
-          <div class="places__caption-container">
-            <h2 class="places__title">Переславль-Залесский</h2>
-            <img src="./images/vector_like_image.svg" alt="Кнопка лайк" class="places__like-button">
-          </div>
-        </li>
-        <li class="places__element">
-          <img src="./images/Trashtrash.svg" alt="Корзина" class="places__trash">
-          <img src="./images/grigory-p4MDhlbDlI0-unsplash_dagestan.jpg" alt="Вид на горы Дагестан" class="places__image">
-          <div class="places__caption-container">
-            <h2 class="places__title">Дагестан</h2>
-            <img src="./images/vector_like_image.svg" alt="Кнопка лайк" class="places__like-button">
-          </div>
-        </li>
-        <li class="places__element">
-          <img src="./images/Trashtrash.svg" alt="Корзина" class="places__trash">
-          <img src="./images/kirill-pershin-1404681-unsplash_elbrus.jpg" alt="Вид на гору Эльбрус" class="places__image">
-          <div class="places__caption-container">
-            <h2 class="places__title">Эльбрус</h2>
-            <img src="./images/vector_like_image.svg" alt="Кнопка лайк" class="places__like-button">
-          </div>
-        </li>
-        <li class="places__element">
-          <img src="./images/Trashtrash.svg" alt="Корзина" class="places__trash">
-          <img src="./images/kirill-pershin-1556355-unsplash_dombay.jpg" alt="Вид на горы Донбай" class="places__image">
-          <div class="places__caption-container">
-            <h2 class="places__title">Донбай</h2>
-            <img src="./images/vector_like_image.svg" alt="Кнопка лайк" class="places__like-button">
-          </div>
-        </li>
         </ul>
       </section>
     <!--Подвал-->
@@ -83,9 +35,8 @@
       <p class="footer__copyright">&copy; 2022 Валерий Гогин</p>
     </footer>
     <!--Попап-->
-    <section class="popup">
-      <div class="popup__container">
-        <img class="popup__close-button" src="./images/close_icon_form.svg"> 
+      <div class="popup popup__container" id="popup_edit_profile">
+        <img class="popup__close-button" src="./images/close_icon_form.svg" id="profile_close_botton"> 
         <form class="popup__form">
           <h3 class="popup__form-header">Редактировать профиль</h3>
           <input class="popup__form-input" type="text" name="name">
@@ -118,7 +69,6 @@
         </div>
       </li>
   </template>
-    </section>
     <script src="./scripts/script.js"></script>
 </body>
 </html>
