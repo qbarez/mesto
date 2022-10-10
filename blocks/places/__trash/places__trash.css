@@ -8,6 +8,5 @@
     outline: none;
     border-style: none;
     object-fit: cover;
-    cursor: pointer;
     transition: opacity .2s linear;
   }

@@ -6,10 +6,9 @@
   outline: none;
   border-style: none;
   object-fit: cover;
-  cursor: pointer;
   transition: opacity .2s linear;
  
 }
 .places__like-button:hover {
-  opacity: .6;
+  opacity: .5;
 }
