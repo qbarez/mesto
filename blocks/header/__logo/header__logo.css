@@ -7,10 +7,15 @@
   background-size: cover;
 }
 
-@media screen and (max-width: 880px) {
-  .header__logo{
-    margin: 0 0 32px 27px;
-    width: 104px;
-    height: 25px;
+@media screen and (max-width: 1023px) {
+  .header__logo {
+      padding-left: 28px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header__logo {
+      max-width: 104px;
+      padding-bottom: 31px;
   }
 }
