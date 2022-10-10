@@ -9,7 +9,7 @@
 @import url(../blocks/profile/__title/profile__title.css);
 @import url(../blocks/profile/__subtitle/profile__subtitle.css);
 @import url(../blocks/profile/__edit-button/profile__edit-button.css);
-@import url(../blocks/profile/__add-content-buttom/profile__add-content-buttom.css);
+@import url(../blocks/profile/__add-content-button/profile__add-content-button.css);
 @import url(../blocks/places/places.css);
 @import url(../blocks/places/__elements/places__elements.css);
 @import url(../blocks/places/__element/places__element.css);
@@ -22,7 +22,7 @@
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__close-button/popup__close-button.css);
-@import url(../blocks/popup/__title/popup__title.css);
+@import url(../blocks/popup/__form-header/popup__form-header.css);
 @import url(../blocks/popup/__form/popup__form.css);
 @import url(../blocks/popup/__form-input/popup__form-input.css);
 @import url(../blocks/popup/__submit-button/popup__submit-button.css);

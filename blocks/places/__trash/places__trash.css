@@ -4,9 +4,10 @@
     position: absolute;
     right: 20px;
     top: 15px;
-  }
-  
-  .places__trash:hover {
-    opacity: 0.6;
+    background: url(../../../images/Trashtrash.svg) 50% no-repeat;
+    outline: none;
+    border-style: none;
+    object-fit: cover;
     cursor: pointer;
+    transition: opacity .2s linear;
   }

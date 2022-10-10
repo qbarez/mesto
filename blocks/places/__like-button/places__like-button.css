@@ -2,10 +2,14 @@
   width: 22px;
   height: 19px;
   margin: 25px 15px 0 0;
-  background: url(../../../images/group_like_image.svg) 50% no-repeat;
-}
-
-.places__like-button:hover {
-  opacity: 0.5;
+  background: url(../../../images/like_button.svg) 50% no-repeat;
+  outline: none;
+  border-style: none;
+  object-fit: cover;
   cursor: pointer;
+  transition: opacity .2s linear;
+ 
+}
+.places__like-button:hover {
+  opacity: .6;
 }

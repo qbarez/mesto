@@ -2,7 +2,7 @@ const popupProfile = document.querySelector('#popup_edit_profile');
 const editProfile = document.querySelector('.profile__edit-button');
 const closeProfile = document.querySelector('#profile_close_botton');
 const popupPlace = document.querySelector('#popup_new_place');
-const addPlaceButton = document.querySelector('.profile__add-content-buttom');
+const addPlaceButton = document.querySelector('.profile__add-content-button');
 const closePlaceButton = document.querySelector('#place_close_botton');
 
 function openPopup(element) {
@@ -151,7 +151,7 @@ const imageView = (title, src) => {
 };
 
 popupImageCloseButton.addEventListener('click', () => {
-closePopup(popupImage)
+  closePopup(popupImage)
 });
 
 //console.log(placeImage);
