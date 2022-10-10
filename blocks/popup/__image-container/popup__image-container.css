@@ -1,6 +1,8 @@
 .popup__image-container {
-    padding: 0;
-    background: none;
-    max-width: 75vw;
-    max-height: 75vh;
-  }
+  max-width: 800px;
+  max-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  margin: 90px auto;
+  position: relative;
+}

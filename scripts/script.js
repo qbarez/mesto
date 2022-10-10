@@ -15,14 +15,11 @@ function closePopup(element) {
 
 editProfile.addEventListener('click', () => {
   openPopup(popupProfile);
+  renderProfileInputs()
 });
 
 closeProfile.addEventListener('click', () => {
   closePopup(popupProfile);
-});
-
-addPlaceButton.addEventListener('click',() => {
-  openPopup(popupPlace)
 });
 
 closePlaceButton.addEventListener('click',() => {
@@ -36,9 +33,10 @@ const formElement = popupContainer.querySelector('.popup__form');
 const inputName = formElement.querySelector('input[name="name"]');
 const inputInfo = formElement.querySelector('input[name="info"]');
 
-inputName.value = profileName.innerHTML;
-inputInfo.value = profileInfo.innerHTML;
-
+function renderProfileInputs() {
+  inputName.value = profileName.innerHTML;
+  inputInfo.value = profileInfo.innerHTML;
+}
 
 function formSubmitHandler (event) {
 	event.preventDefault();
@@ -91,7 +89,7 @@ function addInitCards (title, src) {
   cardImage.alt = title;
   card.querySelector('.places__title').textContent = title;
   card.querySelector('.places__image').addEventListener('click', () => {
-    cardOpen(title, src);
+    imageView(title, src);
 });
   card.querySelector('.places__like-button').addEventListener('click', likeCard);
   card.querySelector('.places__trash').addEventListener('click', deleteCard);
@@ -105,15 +103,55 @@ function likeCard(event) {
   event.target.classList.toggle('places__like-button_active');
 };
 
-function addNewCard(evt) {
-  evt.preventDefault();
-  cardFullItem = fillCard(placeInput.value, placeImageInput.value);
-  renderCard(cardFullItem, cardItems);
-  closePopup(popupPlace);
-}
-
 function deleteCard(event) {
   event.target.closest('.places__element').remove();
 };
 
-console.log(editProfile);
+//console.log(editProfile);
+
+const popupNewPlace = document.querySelector('#popup_new_place');
+const newPlaceForm = popupNewPlace.querySelector('#new_place_form');
+const newPlaceName = popupNewPlace.querySelector('#new_place_name');
+const newPlaceImage = popupNewPlace.querySelector('#new_place_image_link');
+const submitNewPlace = popupNewPlace.querySelector('#submit_new_place');
+
+//console.log(submitNewPlace);
+
+function renderPlaceInputs() {
+  newPlaceName.value = '';
+  newPlaceImage.value = '';
+}
+
+addPlaceButton.addEventListener('click',() => {
+  openPopup(popupPlace);
+  renderPlaceInputs();
+});
+
+function addNewCard(event) {
+  event.preventDefault();
+  cardSet = addInitCards(newPlaceName.value, newPlaceImage.value);
+  renderCard(cardSet, cardsContainer);
+  closePopup(popupPlace);
+}
+
+newPlaceForm.addEventListener('submit', addNewCard);
+
+
+const popupImage = document.querySelector('#popup_image');
+const popupImageView = popupImage.querySelector('.popup__image');
+const popupImageCaption = popupImage.querySelector('.popup__image-caption');
+const popupImageCloseButton = popupImage.querySelector('#image_close_botton');
+const placeImage = document.querySelector('.places__image');
+
+const imageView = (title, src) => {
+  openPopup(popupImage);
+  popupImageView.src = src;
+  popupImageView.alt = title;
+  popupImageCaption.textContent = title;
+};
+
+popupImageCloseButton.addEventListener('click', () => {
+closePopup(popupImage)
+});
+
+//console.log(placeImage);
