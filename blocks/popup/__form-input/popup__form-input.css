@@ -2,7 +2,16 @@
   width: 358px;
   height: 27px;
   margin: 0 36px 30px;
+  padding: 0;
   border: none;
   border-bottom: solid 1px #000;
   opacity: 0.2;
+
+}
+
+@media screen and (max-width: 880px) {
+  .popup__form-input {
+    max-width: calc(100% - 44px);
+    margin: 0 22px 30px;
+  }
 }

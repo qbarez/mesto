@@ -8,3 +8,10 @@
   border-radius: 2px;
   border: rgba(0, 0, 0, 0);
 }
+
+@media screen and (max-width: 880px) {
+  .popup__submit-button {
+    max-width: calc(100% - 44px);
+    margin: 0 22px 25px;
+  }
+}

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./pages/index.css">
+  <link rel="stylesheet" href="./pages/index.css" type="text/css">
   <title>Mesto</title>
 </head>
   <!--Корневой блок-->
@@ -52,21 +52,21 @@
         <button class="button popup__close-button" id="place_close_botton"></button> 
         <form class="popup__form" id="new_place_form">
           <h3 class="popup__form-header">Новое место</h3>
-          <input class="popup__form-input" type="text" placeholder="Название" id="new_place_name">
-          <input class="popup__form-input" type="text" placeholder="Ссылка на картинку" id="new_place_image_link">
+          <input class="popup__form-input popup__text" type="text" placeholder="Название" id="new_place_name">
+          <input class="popup__form-input popup__text" type="text" placeholder="Ссылка на картинку" id="new_place_image_link">
           <button type="submit" class=" button popup__submit-button" id="submit_new_place">Сохранить</button>
         </form>
       </div>
     </div>
     <div class="popup" id="popup_image">
-      <div class="popup__container popup__image-container">
+      <div class="popup__image-container">
         <button class="button popup__close-button" id="image_close_botton"></button>
         <img src="#" alt="#" class="popup__image" >
         <h2 class="popup__image-caption">Здесь подпись</h2>
       </div>
     </div>
     <template id="cards">
-      <li class="places__element">
+      <li class="places__element" id="card">
         <button class="button places__trash"></button>
         <img src="card_image" alt="card_image_discriction" class="places__image">
         <div class="places__caption-container">
