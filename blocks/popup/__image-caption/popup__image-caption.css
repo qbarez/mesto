@@ -1,6 +1,5 @@
 .popup__image-caption {
   max-width: 291px;
-  height: 12px;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
@@ -9,8 +8,4 @@
   color: #FFFFFF;
   text-align: left;
   margin: 10px 0 0 0;
-  position: absolute;
-  left: 0;
-  bottom: -20px;
-
 }
