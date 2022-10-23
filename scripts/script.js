@@ -56,11 +56,6 @@ const closePopup = (element) => {
   element.classList.remove('popup_opened');
 };
 
-const renderProfileInputs = () => {
-  profileNameInput.value = profileName.textContent;
-  profileInfoInput.value = profileInfo.textContent;
-}
-
 const submitProfileForm = (event) => {
 	event.preventDefault();
   profileName.textContent = profileNameInput.value;
