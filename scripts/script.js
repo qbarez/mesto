@@ -109,7 +109,6 @@ for (let i = 0; i < initialCards.length; i++){
 
 profileEditbutton.addEventListener('click', () => {
   openPopup(popupProfile);
-  renderProfileInputs()
 });
 
 profileCloseButton.addEventListener('click', () => {
