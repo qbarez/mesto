@@ -56,6 +56,11 @@ const closePopup = (element) => {
   element.classList.remove('popup_opened');
 };
 
+const renderProfileInputs = () => {
+  profileNameInput.value = profileName.textContent;
+  profileInfoInput.value = profileInfo.textContent;
+}
+
 const submitProfileForm = (event) => {
 	event.preventDefault();
   profileName.textContent = profileNameInput.value;
@@ -109,6 +114,7 @@ for (let i = 0; i < initialCards.length; i++){
 
 profileEditbutton.addEventListener('click', () => {
   openPopup(popupProfile);
+  renderProfileInputs();
 });
 
 profileCloseButton.addEventListener('click', () => {
