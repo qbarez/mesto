@@ -9,6 +9,7 @@ const card = cardsTemplate.querySelector('#card');
 const profileName = document.querySelector('.profile__title');
 const profileInfo = document.querySelector('.profile__subtitle');
 const profileForm = popupProfile.querySelector('#profile_form');
+const profileFormSubmitButton = popupProfile.querySelector('.popup__submit-button');
 const profileNameInput = document.querySelector('input[name="name"]');
 const profileInfoInput = document.querySelector('input[name="info"]');
 const cardsContainer = document.querySelector('.places__elements');
@@ -16,6 +17,7 @@ const popupNewPlace = document.querySelector('#popup_new_place');
 const newPlaceForm = popupNewPlace.querySelector('#new_place_form');
 const newPlaceName = popupNewPlace.querySelector('#new_place_name');
 const newPlaceImage = popupNewPlace.querySelector('#new_place_image_link');
+const newPlaceSubmitButton = popupNewPlace.querySelector('#submit_new_place');
 const popupImage = document.querySelector('#popup_image');
 const popupImageView = popupImage.querySelector('.popup__image');
 const popupImageCaption = popupImage.querySelector('.popup__image-caption');
@@ -68,6 +70,7 @@ const submitProfileForm = (event) => {
 	event.preventDefault();
   profileName.textContent = profileNameInput.value;
   profileInfo.textContent = profileInfoInput.value;
+  setInactiveButtonClass(profileFormSubmitButton, validationSettings);
   closePopup(popupProfile);
 }
 
@@ -75,6 +78,7 @@ const addNewCard = (event) => {
   event.preventDefault();
   cardParam = addInitCards(newPlaceName.value, newPlaceImage.value);
   renderCard(cardParam, cardsContainer);
+  setInactiveButtonClass(newPlaceSubmitButton, validationSettings);
   closePopup(popupNewPlace);
 };
 
@@ -121,15 +125,17 @@ const closePopupEscKey = (event) => {
   };
 };
 
-const closePopupOverlayClick = (evt) => {
-  if (evt.target.classList.contains('popup')){
-    closePopup(evt.target);
+const closePopupOverlayClick = (event) => {
+  if (event.target.classList.contains('popup')){
+    closePopup(event.target);
   }
 };
 
 profileEditbutton.addEventListener('click', () => {
   openPopup(popupProfile);
   renderProfileInputs();
+  removeInputErrors(popupProfile);
+  setActiveButtonClass(profileFormSubmitButton, validationSettings);
 });
 
 profileCloseButton.addEventListener('click', () => {
@@ -145,6 +151,7 @@ profileForm.addEventListener('submit', submitProfileForm);
 placeAddButton.addEventListener('click',() => {
   openPopup(popupNewPlace);
   newPlaceForm.reset();
+  removeInputErrors(popupNewPlace);
 });
 
 newPlaceForm.addEventListener('submit', addNewCard);
