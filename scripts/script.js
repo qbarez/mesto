@@ -1,3 +1,4 @@
+const popup = document.querySelector('popup');
 const popupProfile = document.querySelector('#popup_edit_profile');
 const profileEditbutton = document.querySelector('.profile__edit-button');
 const profileCloseButton = document.querySelector('#profile_close_botton');
@@ -50,10 +51,12 @@ const initialCards = [
 
 const openPopup = (element) => {
   element.classList.add('popup_opened');
+  document.addEventListener('keyup', closePopupEscKey);
 };
 
 const closePopup = (element) => {
   element.classList.remove('popup_opened');
+  document.removeEventListener('keyup', closePopupEscKey);
 };
 
 const renderProfileInputs = () => {
@@ -112,6 +115,18 @@ for (let i = 0; i < initialCards.length; i++){
   renderCard(cardSet, cardsContainer);
 };
 
+const closePopupEscKey = (event) => {
+  if (event.key === 'Escape') {
+    closePopup(document.querySelector('.popup_opened'));
+  };
+};
+
+const closePopupOverlayClick = (evt) => {
+  if (evt.target.classList.contains('popup')){
+    closePopup(evt.target);
+  }
+};
+
 profileEditbutton.addEventListener('click', () => {
   openPopup(popupProfile);
   renderProfileInputs();
@@ -137,3 +152,7 @@ newPlaceForm.addEventListener('submit', addNewCard);
 popupImageCloseButton.addEventListener('click', () => {
   closePopup(popupImage)
 });
+
+popupNewPlace.addEventListener('click', closePopupOverlayClick);
+popupProfile.addEventListener('click', closePopupOverlayClick);
+popupImage.addEventListener('click', closePopupOverlayClick);
