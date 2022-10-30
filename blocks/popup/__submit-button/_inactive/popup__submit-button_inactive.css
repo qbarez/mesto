@@ -5,6 +5,5 @@
 }
 
 .popup__submit-button_inactive:hover {
-    opacity: 1;
-    cursor: not-allowed;
+    cursor:not-allowed;
 }

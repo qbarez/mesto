@@ -1,5 +1,4 @@
-const popup = document.querySelector('popup');
-const popupProfile = document.querySelector('#popup_edit_profile');
+const profilePopup = document.querySelector('#popup_edit_profile');
 const profileEditbutton = document.querySelector('.profile__edit-button');
 const profileCloseButton = document.querySelector('#profile_close_botton');
 const placeAddButton = document.querySelector('.profile__add-content-button');
@@ -8,21 +7,20 @@ const cardsTemplate = document.querySelector('#cards').content;
 const card = cardsTemplate.querySelector('#card');
 const profileName = document.querySelector('.profile__title');
 const profileInfo = document.querySelector('.profile__subtitle');
-const profileForm = popupProfile.querySelector('#profile_form');
-const profileFormSubmitButton = popupProfile.querySelector('.popup__submit-button');
+const profileForm = profilePopup.querySelector('#profile_form');
+const profileFormSubmitButton = profilePopup.querySelector('.popup__submit-button');
 const profileNameInput = document.querySelector('input[name="name"]');
 const profileInfoInput = document.querySelector('input[name="info"]');
 const cardsContainer = document.querySelector('.places__elements');
-const popupNewPlace = document.querySelector('#popup_new_place');
-const newPlaceForm = popupNewPlace.querySelector('#new_place_form');
-const newPlaceName = popupNewPlace.querySelector('#new_place_name');
-const newPlaceImage = popupNewPlace.querySelector('#new_place_image_link');
-const newPlaceSubmitButton = popupNewPlace.querySelector('#submit_new_place');
-const popupImage = document.querySelector('#popup_image');
-const popupImageView = popupImage.querySelector('.popup__image');
-const popupImageCaption = popupImage.querySelector('.popup__image-caption');
-const popupImageCloseButton = popupImage.querySelector('#image_close_botton');
-const placeImage = document.querySelector('.places__image');
+const newPlacePopup = document.querySelector('#popup_new_place');
+const newPlaceForm = newPlacePopup.querySelector('#new_place_form');
+const newPlaceName = newPlacePopup.querySelector('#new_place_name');
+const newPlaceImage = newPlacePopup.querySelector('#new_place_image_link');
+const newPlaceSubmitButton = newPlacePopup.querySelector('#submit_new_place');
+const imagePopup = document.querySelector('#popup_image');
+const imageViewPopup = imagePopup.querySelector('.popup__image');
+const imagePopupCaption = imagePopup.querySelector('.popup__image-caption');
+const imagePopupCloseButton = imagePopup.querySelector('#image_close_botton');
 const popupInputs = document.querySelector('.popup__form-input');
 const initialCards = [
   {
@@ -71,7 +69,7 @@ const submitProfileForm = (event) => {
   profileName.textContent = profileNameInput.value;
   profileInfo.textContent = profileInfoInput.value;
   setInactiveButtonClass(profileFormSubmitButton, validationSettings);
-  closePopup(popupProfile);
+  closePopup(profilePopup);
 }
 
 const addNewCard = (event) => {
@@ -79,7 +77,7 @@ const addNewCard = (event) => {
   cardParam = addInitCards(newPlaceName.value, newPlaceImage.value);
   renderCard(cardParam, cardsContainer);
   setInactiveButtonClass(newPlaceSubmitButton, validationSettings);
-  closePopup(popupNewPlace);
+  closePopup(newPlacePopup);
 };
 
 const renderCard = (card, container) => {
@@ -94,10 +92,10 @@ const deleteCard = (event) => {
 };
 
 const viewImage = (title, src) => {
-  openPopup(popupImage);
-  popupImageView.src = src;
-  popupImageView.alt = title;
-  popupImageCaption.textContent = title;
+  openPopup(imagePopup);
+  imageViewPopup.src = src;
+  imageViewPopup.alt = title;
+  imagePopupCaption.textContent = title;
 };
 
 const addInitCards = (title, src) => {
@@ -132,34 +130,34 @@ const closePopupOverlayClick = (event) => {
 };
 
 profileEditbutton.addEventListener('click', () => {
-  openPopup(popupProfile);
+  openPopup(profilePopup);
   renderProfileInputs();
-  removeInputErrors(popupProfile);
+  removeInputErrors(profilePopup);
   setActiveButtonClass(profileFormSubmitButton, validationSettings);
 });
 
 profileCloseButton.addEventListener('click', () => {
-  closePopup(popupProfile);
+  closePopup(profilePopup);
 });
 
 placeCloseButton.addEventListener('click',() => {
-  closePopup(popupNewPlace)
+  closePopup(newPlacePopup)
 });
 
 profileForm.addEventListener('submit', submitProfileForm);
 
 placeAddButton.addEventListener('click',() => {
-  openPopup(popupNewPlace);
+  openPopup(newPlacePopup);
   newPlaceForm.reset();
-  removeInputErrors(popupNewPlace);
+  removeInputErrors(newPlacePopup);
 });
 
 newPlaceForm.addEventListener('submit', addNewCard);
 
-popupImageCloseButton.addEventListener('click', () => {
-  closePopup(popupImage)
+imagePopupCloseButton.addEventListener('click', () => {
+  closePopup(imagePopup)
 });
 
-popupNewPlace.addEventListener('click', closePopupOverlayClick);
-popupProfile.addEventListener('click', closePopupOverlayClick);
-popupImage.addEventListener('click', closePopupOverlayClick);
+newPlacePopup.addEventListener('click', closePopupOverlayClick);
+profilePopup.addEventListener('click', closePopupOverlayClick);
+imagePopup.addEventListener('click', closePopupOverlayClick);
