@@ -1,56 +1,27 @@
 import { FormValidator } from "./FormValidator.js";
 import { Card } from "./Card.js";
+import { initialCards } from "./initialCardsData.js";
 
 const profilePopup = document.querySelector('#popup_edit_profile');
 const profileEditbutton = document.querySelector('.profile__edit-button');
 const profileCloseButton = document.querySelector('#profile_close_botton');
 const placeAddButton = document.querySelector('.profile__add-content-button');
 const placeCloseButton = document.querySelector('#place_close_botton');
-//const cardsTemplate = document.querySelector('#cards').content;
-//const card = cardsTemplate.querySelector('#card');
 const profileName = document.querySelector('.profile__title');
 const profileInfo = document.querySelector('.profile__subtitle');
 const profileForm = profilePopup.querySelector('#profile_form');
-const profileFormSubmitButton = profilePopup.querySelector('.popup__submit-button');
 const profileNameInput = document.querySelector('input[name="name"]');
 const profileInfoInput = document.querySelector('input[name="info"]');
-const cardsContainer = document.querySelector('.places__elements');
+const cardsContainer = document.querySelector('.card__elements');
 const newPlacePopup = document.querySelector('#popup_new_place');
 const newPlaceForm = newPlacePopup.querySelector('#new_place_form');
 const newPlaceName = newPlacePopup.querySelector('#new_place_name');
 const newPlaceImage = newPlacePopup.querySelector('#new_place_image_link');
-//const newPlaceSubmitButton = newPlacePopup.querySelector('#submit_new_place');
 const imagePopup = document.querySelector('#popup_image');
 const imageViewPopup = imagePopup.querySelector('.popup__image');
 const imagePopupCaption = imagePopup.querySelector('.popup__image-caption');
 const imagePopupCloseButton = imagePopup.querySelector('#image_close_botton');
-const popupInputs = document.querySelector('.popup__form-input');
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
+
 
 export const validationSettings = {
   formSelector: '.popup__form',
@@ -83,9 +54,9 @@ const submitProfileForm = (event) => {
   closePopup(profilePopup);
 }
 
-const addNewCard = (event) => {
+const handleAddNewCard = (event) => {
   event.preventDefault();
-  cardParam = addInitCards(newPlaceName.value, newPlaceImage.value);
+  const cardParam = createCard(newPlaceName.value, newPlaceImage.value);
   renderCard(cardParam, cardsContainer);
   closePopup(newPlacePopup);
 };
@@ -95,22 +66,22 @@ const renderCard = (card, container) => {
 };
 
 const viewImage = (title, src) => {
-  openPopup(imagePopup);
   imageViewPopup.src = src;
   imageViewPopup.alt = title;
   imagePopupCaption.textContent = title;
+  openPopup(imagePopup);
 };
 
-const addInitCards = (name, link) => {
+const createCard = (name, link) => {
   const card = new Card(name, link, '#cards', viewImage);
-  const cardsContainerElement = card.addInitCards();
+  const cardsContainerElement = card.generateCardElement();
 
   return cardsContainerElement;
 }
 
 initialCards.forEach((item) => {
-  const cardSet = addInitCards(item.name, item.link);
-  cardsContainer.prepend(cardSet);
+  const cardSet = createCard(item.name, item.link);
+  renderCard(cardSet, cardsContainer);
 })
 
 const closePopupEscKey = (event) => {
@@ -147,7 +118,7 @@ placeAddButton.addEventListener('click',() => {
   newPlaceFormValidation.removeInputErrors(newPlacePopup);
 });
 
-newPlaceForm.addEventListener('submit', addNewCard);
+newPlaceForm.addEventListener('submit', handleAddNewCard);
 
 imagePopupCloseButton.addEventListener('click', () => {
   closePopup(imagePopup)

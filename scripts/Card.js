@@ -6,7 +6,7 @@ export class Card {
     this._viewPlaceImage = viewImage;
   }
 
-  _getPlacesElement() {
+  _getCardElement() {
     const cardTemplate = document
       .querySelector(this._selector)
       .content
@@ -18,21 +18,21 @@ export class Card {
   }
     
     
-  addInitCards() {
-    this._placesElement = this._getPlacesElement();
-    this._placesElementImage = this._placesElement.querySelector('.places__image');
-    this._placesElementImage.src = this._image;
-    this._placesElementImage.alt = this._title;
-    this._placesElement.querySelector('.places__title').textContent = this._title;
+  generateCardElement() {
+    this._element = this._getCardElement();
+    this._elementImage = this._element.querySelector('.card__image');
+    this._elementImage.src = this._image;
+    this._elementImage.alt = this._title;
+    this._element.querySelector('.card__title').textContent = this._title;
 
     this._setEventListeners();
 
-    return this._placesElement;
+    return this._element;
   }
 
   _setEventListeners() {
-    this._likeButton = this._placesElement.querySelector('.places__like-button');
-    this._placesElement.querySelector('.places__image').addEventListener('click', () => {
+    this._likeButton = this._element.querySelector('.card__like-button');
+    this._element.querySelector('.card__image').addEventListener('click', () => {
       this._viewPlaceImage(this._title, this._image);
   });
 
@@ -40,18 +40,18 @@ export class Card {
       this._likeCard();
   });
 
-    this._placesElement.querySelector('.places__trash').addEventListener('click', () => {
+    this._element.querySelector('.card__trash').addEventListener('click', () => {
       this._deleteCard();
   });
     }
 
   _likeCard() {
-    this._likeButton.classList.toggle('places__like-button_active');
+    this._likeButton.classList.toggle('card__like-button_active');
     }
 
   _deleteCard() {
-    this._placesElement.remove();
-    this._placesElement = null;
+    this._element.remove();
+    this._element = null;
     }
 
 }

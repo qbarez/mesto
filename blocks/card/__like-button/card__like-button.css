@@ -1,4 +1,4 @@
-.places__like-button {
+.card__like-button {
   width: 22px;
   height: 19px;
   margin: 25px 15px 0 0;
@@ -9,6 +9,6 @@
   transition: opacity .2s linear;
  
 }
-.places__like-button:hover {
+.card__like-button:hover {
   opacity: .5;
 }

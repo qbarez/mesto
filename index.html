@@ -25,8 +25,8 @@
         <button class="button profile__add-content-button" type="button"></button>
       </section>
       <!--Карточки с интересными местами-->
-      <section class="places">
-        <ul class="places__elements">
+      <section class="card">
+        <ul class="card__elements">
         </ul>
       </section>
     </main>
@@ -69,17 +69,18 @@
       </div>
     </div>
     <template id="cards">
-      <li class="places__element" id="card">
-        <button class="button places__trash"></button>
-        <img src="card_image" alt="card_image_discripction" class="places__image">
-        <div class="places__caption-container">
-          <h2 class="places__title"></h2>
-          <button class="button places__like-button"></button>
+      <li class="card__element" id="card">
+        <button class="button card__trash"></button>
+        <img src="card_image" alt="card_image_discripction" class="card__image">
+        <div class="card__caption-container">
+          <h2 class="card__title"></h2>
+          <button class="button card__like-button"></button>
         </div>
       </li>
   </template>
-    <script type="module" src="./scripts/script.js"></script>
+    <script type="module" src="./scripts/index.js"></script>
     <script type="module" src="./scripts/FormValidator.js"></script>
+    <script type="module" src="./scripts/initialCardsData.js"></script>
     <script type="module" src="./scripts/Card.js"></script>
 </body>
 </html>

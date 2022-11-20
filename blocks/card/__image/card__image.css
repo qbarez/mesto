@@ -1,9 +1,9 @@
-.places__image {
+.card__image {
   width: 282px;
   height: 282px;
   border-radius: 10px 10px 0px 0px;
 }
 
-.places__image:hover {
+.card__image:hover {
   cursor: pointer;
 }

@@ -5,5 +5,5 @@
 }
 
 .popup__submit-button_inactive:hover {
-    cursor:none;
+    cursor:default;
 }

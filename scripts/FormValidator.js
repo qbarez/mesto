@@ -21,7 +21,6 @@ export class FormValidator {
           this._errorElement = this._form.querySelector(`#${inputElement.id}-error`);
           this._checkInputValidity(inputElement);
           this._toggleBtnState();
-          //console.log("setEventListeners работает");
         });
       });
     }
@@ -33,16 +32,13 @@ export class FormValidator {
         this._errorElement = this._form.querySelector(`.${input.id}-error`);
         this._hideInputError(input);
         })
-        //console.log("removeInputErrors работает");
       }
 
     _checkInputValidity (inputElement) {
         if (!inputElement.validity.valid) {
           this._showInputError(inputElement);
-          //console.log("checkInputValidity работает");
         } else {
           this._hideInputError(inputElement);
-          //console.log("else checkInputValidity работает");
         }
     };
 
@@ -50,7 +46,6 @@ export class FormValidator {
         inputElement.classList.add(this._inputErrorClass);
         this._errorElement.textContent = inputElement.validationMessage;
         this._errorElement.classList.add(this._errorClass);
-        //console.log("showInputError работает");
       };  
 
     _hideInputError (inputElement) {
@@ -58,7 +53,6 @@ export class FormValidator {
       inputElement.classList.remove(this._inputErrorClass);
       this._errorElement.classList.remove(this._errorClass);
       this._errorElement.textContent = '';
-      //console.log("hideInputError работает");
     };
 
     _validateInput() {
@@ -69,11 +63,9 @@ export class FormValidator {
         if (this._validateInput()) {
             this._bottonElement.classList.add(this._inactiveButton);
             this._bottonElement.setAttribute('disabled', true);
-            //console.log("toggleBtnState работает");
         } else {
             this._bottonElement.classList.remove(this._inactiveButton);
             this._bottonElement.removeAttribute('disabled', true);
-            //console.log("toggleBtnState else работает");
           }
       } 
 
@@ -82,6 +74,5 @@ export class FormValidator {
             evt.preventDefault();
         });
         this._setEventListeners();
-        //console.log("enableValidaton работает");
     }
 }
