@@ -3,20 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./pages/index.css" type="text/css">
   <title>Mesto</title>
 </head>
   <!--Корневой блок-->
 <body class="page">
     <!--Заголовок-->
     <header class="header">
-      <img src="./images/logo.svg" alt="лого Россия" class="header__logo">
+      <img src="<%=require('./images/logo.svg')%>" alt="лого Россия" class="header__logo">
     </header>
     <!--Основной блок с контентом-->
     <main>
       <!--Профиль пользователя-->
       <section class="profile">
-        <img src="./images/image_kusto_avatar.jpg" alt="Аватар Жак-ИВ Кусто" class="profile__avatar">
+        <img src="<%=require('./images/image_kusto_avatar.jpg')%>" alt="Аватар Жак-ИВ Кусто" class="profile__avatar">
         <div class="profile__info">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
           <button class="button profile__edit-button" type="button"></button>
@@ -78,9 +77,5 @@
         </div>
       </li>
   </template>
-    <script type="module" src="./scripts/index.js"></script>
-    <script type="module" src="./scripts/FormValidator.js"></script>
-    <script type="module" src="./scripts/initialCardsData.js"></script>
-    <script type="module" src="./scripts/Card.js"></script>
 </body>
 </html>

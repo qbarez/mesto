@@ -1,7 +1,7 @@
 export class Card {
-  constructor(name, link, selector, viewImage) {
-    this._title = name;
-    this._image = link;
+  constructor(data, selector, viewImage) {
+    this._title = data.name;
+    this._image = data.link;
     this._selector = selector;
     this._viewPlaceImage = viewImage;
   }
@@ -16,8 +16,7 @@ export class Card {
     return cardTemplate;
 
   }
-    
-    
+     
   generateCardElement() {
     this._element = this._getCardElement();
     this._elementImage = this._element.querySelector('.card__image');
@@ -32,7 +31,7 @@ export class Card {
 
   _setEventListeners() {
     this._likeButton = this._element.querySelector('.card__like-button');
-    this._element.querySelector('.card__image').addEventListener('click', () => {
+    this._elementImage.addEventListener('click', () => {
       this._viewPlaceImage(this._title, this._image);
   });
 
