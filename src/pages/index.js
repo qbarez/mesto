@@ -2,11 +2,11 @@ import './index.css';
 import { FormValidator } from "../components/FormValidator.js";
 import { Card } from "../components/Card.js";
 import Section from "../components/Section.js";
-import PopupWithImage from "../components/PicturePopup.js";
+
+import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import { initialCards,
-  profilePopup,
   profileEditbutton,
   placeAddButton,
   profileName,
@@ -17,8 +17,10 @@ import { initialCards,
   cardsContainer,
   newPlacePopup,
   newPlaceForm,
-  imagePopup,
-  validationSettings
+  validationSettings,
+  imagePopupSelector,
+  newPlacePopupSelector,
+  profilePopupSelector
 } from "../utils/constants.js";
 
 const createCard = (data) => {
@@ -67,7 +69,7 @@ profileEditbutton.addEventListener('click', () => {
 
 placeAddButton.addEventListener('click',() => {
   popupPlace.open();
-  newPlaceFormValidation.removeInputErrors(newPlacePopup);
+  newPlaceFormValidation.removeInputErrors();
 });
 
 const profileFormValidation = new FormValidator(profileForm, validationSettings);
@@ -76,13 +78,13 @@ profileFormValidation.enableValidation();
 const newPlaceFormValidation = new FormValidator(newPlaceForm, validationSettings);
 newPlaceFormValidation.enableValidation();
 
-const popupImage = new PopupWithImage(imagePopup);
+const popupImage = new PopupWithImage(imagePopupSelector);
 popupImage.setEventListeners();
 
-const popupPlace = new PopupWithForm(newPlacePopup, handleAddNewCard)
+const popupPlace = new PopupWithForm(newPlacePopupSelector, handleAddNewCard)
 popupPlace.setEventListeners();
 
-const popupProfle = new PopupWithForm(profilePopup, submitProfileForm)
+const popupProfle = new PopupWithForm(profilePopupSelector, submitProfileForm)
 popupProfle.setEventListeners();
 
 const userInfo = new UserInfo({

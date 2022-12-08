@@ -18,7 +18,7 @@ export class FormValidator {
 
       this._inputList.forEach(inputElement => {
         inputElement.addEventListener('input', () => {
-          this._errorElement = this._form.querySelector(`#${inputElement.id}-error`);
+          this._errorElement = this._form.querySelector(`.${inputElement.id}-error`);
           this._checkInputValidity(inputElement);
           this._toggleBtnState();
         });
@@ -70,9 +70,6 @@ export class FormValidator {
       } 
 
     enableValidation() {
-        this._form.addEventListener('submit', (evt) => {
-            evt.preventDefault();
-        });
         this._setEventListeners();
     }
 }
