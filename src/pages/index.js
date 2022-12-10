@@ -2,7 +2,6 @@ import './index.css';
 import { FormValidator } from "../components/FormValidator.js";
 import { Card } from "../components/Card.js";
 import Section from "../components/Section.js";
-
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
@@ -10,12 +9,13 @@ import { initialCards,
   profileEditbutton,
   placeAddButton,
   profileName,
+  profileNameSelector,
   profileInfo,
+  profileInfoSelector,
   profileForm,
   profileNameInput,
   profileInfoInput,
-  cardsContainer,
-  newPlacePopup,
+  cardsContainerSelector,
   newPlaceForm,
   validationSettings,
   imagePopupSelector,
@@ -40,11 +40,9 @@ const cardsList = new Section({
       const card = createCard(data);
       cardsList.addItem(card)
   }
-}, cardsContainer);
+}, cardsContainerSelector);
 
 cardsList.renderItem();
-
-
 
 const renderProfileInputs = () => {
   profileNameInput.value = profileName.textContent;
@@ -88,6 +86,6 @@ const popupProfle = new PopupWithForm(profilePopupSelector, submitProfileForm)
 popupProfle.setEventListeners();
 
 const userInfo = new UserInfo({
-  profileName: profileName,
-  profileInfo: profileInfo
+  profileNameSelector: profileNameSelector,
+  profileInfoSelector: profileInfoSelector
 });
