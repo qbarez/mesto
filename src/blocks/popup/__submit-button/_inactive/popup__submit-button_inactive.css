@@ -1,9 +1,0 @@
-.popup__submit-button_inactive {
-    background: #FFFFFF;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
-    color: #000000;
-}
-
-.popup__submit-button_inactive:hover {
-    cursor:default;
-}

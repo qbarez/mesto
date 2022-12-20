@@ -1,8 +1,0 @@
-.card__element {
-  max-width: 282px;
-  height: 361px;
-  display: flex;
-  flex-direction: column;
-  border-radius: 50%;
-  position: relative;
-}
