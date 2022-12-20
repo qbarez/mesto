@@ -50,6 +50,12 @@ export const profileInfoSelector = '.profile__subtitle';
 export const newPlacePopupSelector = '#popup_new_place';
 export const profilePopupSelector = '#popup_edit_profile';
 export const imagePopupSelector = '#popup_image';
+export const popupConfirmSelector = '#popup_confirm';
+export const avatarButton = document.querySelector('.profile__avatar');
+export const profileAvatarSelector = '.profile__avatar-image';
+export const avatarForm = document.querySelector('#avatar_form');
+export const popupAvatar = document.querySelector('#popup_avatar');
+export const popupAvatarSelector = '#popup_avatar';
 
 
 export const validationSettings = {
@@ -59,4 +65,5 @@ export const validationSettings = {
   inactiveButtonClass: 'popup__submit-button_inactive',
   inputErrorClass: 'popup__form-input_type_error',
   errorClass: 'popup__form-input-error_active',
+  avatarSelector: '.profile__avatar-image',
 };

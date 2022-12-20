@@ -5,17 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
 </head>
-  <!--Корневой блок-->
 <body class="page">
-    <!--Заголовок-->
     <header class="header">
       <img src="<%=require('./images/logo.svg')%>" alt="лого Россия" class="header__logo">
     </header>
-    <!--Основной блок с контентом-->
     <main>
-      <!--Профиль пользователя-->
       <section class="profile">
-        <img src="<%=require('./images/image_kusto_avatar.jpg')%>" alt="Аватар Жак-ИВ Кусто" class="profile__avatar">
+        <div class="profile__avatar">
+          <img src="#" alt="Ваша Аватарка" class="profile__avatar-image">
+        </div>
         <div class="profile__info">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
           <button class="button profile__edit-button" type="button"></button>
@@ -23,17 +21,14 @@
         </div>
         <button class="button profile__add-content-button" type="button"></button>
       </section>
-      <!--Карточки с интересными местами-->
       <section class="card">
         <ul class="card__elements">
         </ul>
       </section>
     </main>
-      <!--Подвал-->
     <footer class="footer">
       <p class="footer__copyright">&copy; 2022 Валерий Гогин</p>
     </footer>
-    <!--Попап-->
     <div class="popup" id="popup_edit_profile">
       <div class="popup__container" >
         <button class="button popup__close-button" id="profile_close_botton"></button>
@@ -67,13 +62,36 @@
         <h2 class="popup__image-caption">Здесь подпись</h2>
       </div>
     </div>
+    <div class="popup" id="popup_confirm">
+      <div class="popup__container">
+          <button class="button popup__close-button" id="confirm_close_botton" type="button"></button>
+          <form class="popup__form" name="confirm_form" id="place_confirm" novalidate>
+              <h3 class="popup__form-header">Вы уверены?</h3>
+              <button class="popup__submit-button" type="submit">Да</button>
+          </form>
+      </div>
+  </div>
+  <div class="popup" id="popup_avatar">
+      <div class="popup__container">
+        <button class="button popup__close-button" id="confirm_close_botton" type="button"></button>
+        <form class="popup__form" name="avatar_form" id="avatar_form" novalidate>
+              <h3 class="popup__form-header">Обновить аватар</h3>
+              <input type="url" class="popup__form-input" placeholder="Ссылка на аватар" id="avatar" name="avatar_link" required>
+                <span class="avatar-error popup__form-input-error"></span>
+              <button type="submit" class="popup__submit-button" id="submit_new_place" disabled>Сохранить</button>
+        </form>
+      </div>
+  </div>
     <template id="cards">
       <li class="card__element" id="card">
         <button class="button card__trash"></button>
         <img src="card_image" alt="card_image_discripction" class="card__image">
         <div class="card__caption-container">
           <h2 class="card__title"></h2>
-          <button class="button card__like-button"></button>
+          <div class="card__like-container">
+            <button class="button card__like-button"></button>
+            <p class="card__like-counter">0</p>
+          </div>
         </div>
       </li>
   </template>

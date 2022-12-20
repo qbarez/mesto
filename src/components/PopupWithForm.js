@@ -1,32 +1,52 @@
 import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
-    constructor(popupSelector, submitHandler) {
-        super(popupSelector);
-        this._submitHandler = submitHandler;
-        this._form = this._popup.querySelector('.popup__form');
-        this._inputs = this._popup.querySelectorAll('.popup__form-input');
-    }
+  constructor(popupSelector, {submit} ) {
+    super(popupSelector);
+    this._submit = submit;
+    this._form = this._popup.querySelector('.popup__form');
+    this._inputs = this._popup.querySelectorAll('.popup__form-input');
+    this._submitButton = this._popup.querySelector('.popup__submit-button');
+    this._submitButtonText = this._submitButton.textContent;
+    this._submitEvtHandler = this._submitEvtHandler.bind(this);
+  }
 
-    _getInputValue() {
-        this._inputValues = {};
-        this._inputs.forEach(input => {
-            return this._inputValues[input.id] = input.value;
+  renderLoading(isLoading) {
+    if (isLoading) {
+      this._submitButton.textContent = 'Сохранение...';
+    } else {
+      this._submitButton.textContent = this._submitButtonText;
+    }
+}
+
+  _getInputValues() {
+    const inputsList = Array.from(this._form.querySelectorAll('.popup__form-input'));
+    const data = {};
+    inputsList.forEach(input => {
+      data[input.id] = input.value;
+    })
+    return data;
+  }
+
+  _submitEvtHandler(evt) {
+    evt.preventDefault();
+    this._submit(this._getInputValues());
+}
+
+    setInputValue(data) {
+        this._inputs.forEach((item) => {
+            item.value = data[item.name];
         })
-        return this._inputValues
     }
 
     setEventListeners() {
+        this._form.addEventListener('submit', this._submitEvtHandler);
         super.setEventListeners();
-        this._popup.addEventListener('submit', (el) => {
-            el.preventDefault();
-            this._submitHandler(this._getInputValue());
-            this.close();
-        })
-    }
+      }
 
     close() {
-        super.close();
         this._form.reset();
+        this._form.removeEventListener('submit', this._submitEvtHandler);
+        super.close();
     }
 }
