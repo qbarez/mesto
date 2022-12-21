@@ -6,13 +6,11 @@ export default class UserInfo {
     }
 
     getUserInfo() {
-      const userInfo = {
+      return {
         userName: this._name.textContent,
         userAbout: this._info.textContent,
         avatar: this._avatar.src
       }
-      
-      return userInfo
     }
 
     setUserInfo(data) {

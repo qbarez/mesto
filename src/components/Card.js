@@ -1,12 +1,12 @@
 export class Card {
-  constructor(data, userId, selector, {
+  constructor(data, userId, templateSelector, {
     viewImage, 
     like, 
     dislike, 
     deleteCard}) {
     this._title = data.name;
     this._image = data.link;
-    this._selector = selector;
+    this._templateSelector = templateSelector;
     this._viewPlaceImage = viewImage;
     this._id = data._id;
     this._likes = data.likes;
@@ -20,9 +20,9 @@ export class Card {
 
   _getCardElement() {
     const cardTemplate = document
-      .querySelector(this._selector)
+      .querySelector(this._templateSelector)
       .content
-      .querySelector('#card')
+      .firstElementChild
       .cloneNode(true);
 
     return cardTemplate;

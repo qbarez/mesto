@@ -1,3 +1,5 @@
+import Api from '../components/Api.js';
+
 export const initialCards = [
     {
       name: 'Архыз',
@@ -56,6 +58,8 @@ export const profileAvatarSelector = '.profile__avatar-image';
 export const avatarForm = document.querySelector('#avatar_form');
 export const popupAvatar = document.querySelector('#popup_avatar');
 export const popupAvatarSelector = '#popup_avatar';
+export const templateSelector = '#cards';
+
 
 
 export const validationSettings = {
@@ -67,3 +71,11 @@ export const validationSettings = {
   errorClass: 'popup__form-input-error_active',
   avatarSelector: '.profile__avatar-image',
 };
+
+export const api = new Api({
+  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-54",
+  headers: {
+      authorization: "3f147de7-c65a-4296-8c43-0f859e42034e",
+      "Content-Type": "application/json",
+  },
+});

@@ -20,13 +20,14 @@ import { profileEditbutton,
   profileAvatarSelector,
   avatarForm,
   avatarButton,
-  popupAvatarSelector
+  popupAvatarSelector,
+  templateSelector,
+  api
 } from "../utils/constants.js";
 import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
-import Api from '../components/Api.js';
 import PopupConfirm from "../components/PopupConfirm";
 
 let userId;
@@ -41,7 +42,7 @@ const cardsList = new Section({
 const createCard = (data) => {
   const card = new Card(
     data, userId,
-    '#cards', {
+    templateSelector, {
     viewImage,
     like: () => {
       api.likeCard(data._id)
@@ -87,7 +88,6 @@ const popupPlace = new PopupWithForm(newPlacePopupSelector, {
       })
       .finally(() => {
         popupPlace.renderLoading(false);
-        popupPlace.close()
       })
   }
 });
@@ -115,13 +115,13 @@ const popupProfle = new PopupWithForm(profilePopupSelector, {
     api.setUserInfo(data)
       .then((res) => {
         userInfo.getUserInfo(res);
+        popupProfle.close();
       })
       .catch((err) => {
         console.log(err);
       })
       .finally(() => {
         popupProfle.renderLoading(false);
-        popupProfle.close();
       })
   }
 })
@@ -149,13 +149,13 @@ const avatarPopup = new PopupWithForm(popupAvatarSelector, {
     api.changeAvatar(data)
       .then((res) => {
         userInfo.setAvatar(res);
+        avatarPopup.close();
       })
       .catch((err) => {
         console.log(err);
       })
       .finally(() => {
         avatarPopup.renderLoading(false);
-        avatarPopup.close();
       })
   }
 })
@@ -192,14 +192,6 @@ avatarFormValidation.enableValidation();
 
 const popupImage = new PopupWithImage(imagePopupSelector);
 popupImage.setEventListeners();
-
-const api = new Api({
-  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-54",
-  headers: {
-      authorization: "3f147de7-c65a-4296-8c43-0f859e42034e",
-      "Content-Type": "application/json",
-  },
-});
 
 Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([userData, cards]) => {
